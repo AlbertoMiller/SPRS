@@ -1,10 +1,10 @@
+import "./css/main.css";
+// import Header from "./header";
+// import Footer from "./footer";
+import Router from "./Components/router";
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-    </div>
-  );
+  return <Router />;
 }
 
 export default App;
