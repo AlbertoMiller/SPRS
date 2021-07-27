@@ -9,8 +9,7 @@ i {
   pointer-events: none;
   text-decoration: none;
 }
-ّ
-.navbar-logos {
+ّ .navbar-logos {
   padding: 15px;
   color: #fff !important ;
   pointer-events: none;
@@ -141,5 +140,10 @@ i {
   .hori-selector .right:before {
     bottom: -25px;
     left: -25px;
+  }
+  .cardImage {
+    object-fit: cover;
+    height: 9rem;
+    place-self: center;
   }
 }
