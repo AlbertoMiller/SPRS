@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import ItemsCard from "../Components/ItemCard/itemCard"
 function Home() {
     const [items, setItem] = useState([]);
+    const [searchboxintelligence, setsearchboxintelligence] = useState('')
     useEffect(() => {
         (async () => {
             try {
@@ -16,9 +17,31 @@ function Home() {
         })
             ();
     }, [])
-    return items && items.map((item, index) => (
-        <ItemsCard itemData={item} key={index} />
-    ))
+
+
+    return (
+        <home className="home">
+
+            <input type="text"
+                placeholder="Search..."
+                onChange={event => {
+                    setsearchboxintelligence(event.target.value)
+                }} />
+
+            <boxCard>
+                {items && items.filter((val) => {
+                    if (searchboxintelligence === "") {
+                        return val
+                    }
+                    else if (val.title.toLowerCase().includes(searchboxintelligence.toLowerCase())) {
+                        return val
+                    }
+                }).map((item, index) => (
+                    <ItemsCard itemData={item} key={index} />
+                ))}
+            </boxCard>
+        </home>
+    )
 
 
 }

@@ -3,7 +3,17 @@
 @import "navBar";
 
 // Home *Begin*
-
+home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+boxCard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .text {
   display: inline;
   width: 100%;
@@ -16,6 +26,7 @@
 main {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 cards.cards {
   display: flex;
@@ -25,6 +36,7 @@ cards.cards {
   min-height: 100%;
   justify-content: space-evenly !important;
   align-content: space-evenly;
+  flex-direction: row;
 }
 .card {
   width: 13rem !important;
@@ -41,16 +53,30 @@ cards.cards {
   height: 9rem;
   place-self: center;
   width: unset;
-  padding: 20px;    
+  padding: 20px;
 }
 .cardTitle {
-    white-space: nowrap;
-    height: 25%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  // white-space: nowrap;
+  // // height: 25%;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  // -webkit-line-clamp: 2;
+  // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // white-space: normal;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
-.positionButton{
-    display: flex;
-    justify-content: flex-end;
+.positionButton {
+  display: flex;
+  justify-content: flex-end;
+}
+Home input {
+  margin: 20px;
 }
 //Home *End*
