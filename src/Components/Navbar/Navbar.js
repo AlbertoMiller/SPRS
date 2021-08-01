@@ -11,12 +11,21 @@ const Navbar = () => {
     var activeWidthNewAnimWidth = activeItemNewAnim.innerWidth();
     var itemPosNewAnimTop = activeItemNewAnim.position();
     var itemPosNewAnimLeft = activeItemNewAnim.position();
-    const diffrentBettwinItems = 15;
-    var itemPosNewAnimLetfEdition =
-      itemPosNewAnimLeft.left - diffrentBettwinItems;
     $(".hori-selector").css({
       top: itemPosNewAnimTop.top + "px",
-      left: itemPosNewAnimLetfEdition + "px",
+      left: itemPosNewAnimLeft.left + "px",
+      height: activeWidthNewAnimHeight + "px",
+      width: activeWidthNewAnimWidth + "px",
+    });
+    $(".hori-selector:before").css({
+      top: itemPosNewAnimTop.top + "px",
+      left: itemPosNewAnimLeft.left + "px",
+      height: activeWidthNewAnimHeight + "px",
+      width: activeWidthNewAnimWidth + "px",
+    });
+    $(".hori-selector:after").css({
+      top: itemPosNewAnimTop.top + "px",
+      left: itemPosNewAnimLeft.left + "px",
       height: activeWidthNewAnimHeight + "px",
       width: activeWidthNewAnimWidth + "px",
     });

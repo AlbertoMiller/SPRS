@@ -9,25 +9,21 @@ function Home() {
                 const response = await fetch('http://fakestoreapi.com/products')
                 const itemData = (await response.json());
                 setItem(itemData)
-            } catch (error) {
+            }
+            catch (error) {
                 console.log(error)
                 setItem([]);
             }
-
         })
             ();
     }, [])
-
-
     return (
         <home className="home">
-
             <input type="text"
                 placeholder="Search..."
                 onChange={event => {
                     setsearchboxintelligence(event.target.value)
                 }} />
-
             <boxCard>
                 {items && items.filter((val) => {
                     if (searchboxintelligence === "") {
@@ -36,6 +32,10 @@ function Home() {
                     else if (val.title.toLowerCase().includes(searchboxintelligence.toLowerCase())) {
                         return val
                     }
+                    else if (val.category.toLowerCase().includes(searchboxintelligence.toLowerCase())) {
+                        return val
+                    }
+                    return null
                 }).map((item, index) => (
                     <ItemsCard itemData={item} key={index} />
                 ))}

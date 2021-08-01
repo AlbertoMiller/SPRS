@@ -1,0 +1,43 @@
+$phoneMax: 640px;
+$tabletMax: 768px;
+$desktopMax: 1024px;
+@mixin mQ($arg) {
+  @media screen and (max-width: $arg) {
+    @content;
+  }
+}
+.modal-header {
+  border-bottom: unset;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.modal-content {
+  flex-direction: row;
+}
+.modalBox {
+  display: flex !important;
+  align-items: center;
+  @include mQ($phoneMax) {
+    display: block !important;
+
+  }
+  .modalCardTitle {
+    overflow: unset !important;
+    -webkit-line-clamp: unset !important;
+    // word-break: break-all;
+    // white-space: break-spaces;
+    font-weight: normal;
+  }
+
+  .modalPluse {
+    display: flex;
+    justify-content: center;
+
+    .pluseCircle,
+    counterBox {
+      position: unset !important;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
