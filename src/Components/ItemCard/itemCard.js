@@ -29,7 +29,9 @@ const ItemCard = ({ itemData }) => {
             -
           </subtract>
 
-          <counterNumber className="noselect">{limitNumberWithinRange()} </counterNumber>
+          <counterNumber className="noselect">
+            {limitNumberWithinRange()}{" "}
+          </counterNumber>
           <pluse
             class="pluseCircle smallPluseCircle noselect"
             style={{ cursor: "pointer" }}

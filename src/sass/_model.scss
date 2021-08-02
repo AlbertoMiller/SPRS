@@ -6,11 +6,7 @@ $desktopMax: 1024px;
     @content;
   }
 }
-.modal-header {
-  border-bottom: unset;
-  display: flex;
-  flex-direction: column-reverse;
-}
+
 .modal-content {
   flex-direction: row;
 }
@@ -19,7 +15,21 @@ $desktopMax: 1024px;
   align-items: center;
   @include mQ($phoneMax) {
     display: block !important;
-
+  }
+  .modal-dialog {
+    @media (min-width: 576px) {
+      max-width: 650px;
+      margin: 1.75rem auto;
+    }
+    .modal-body {
+      width: 35%;
+    }
+    .modal-header {
+      border-bottom: unset;
+      display: flex;
+      flex-direction: column-reverse;
+      width: 65%;
+    }
   }
   .modalCardTitle {
     overflow: unset !important;
@@ -27,6 +37,7 @@ $desktopMax: 1024px;
     // word-break: break-all;
     // white-space: break-spaces;
     font-weight: normal;
+    text-align: center;
   }
 
   .modalPluse {
