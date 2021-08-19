@@ -1,32 +1,9 @@
 import React, { useState } from "react";
-import { useCounterState } from "../../Providers/Providers";
 import SorryPic from "../../static/sorry.svg";
 const SlideBarCard = ({ itemData }) => {
-  const globalCounter = useCounterState();
-  //   console.log(
-  //     "your id is :" +
-  //       globalCounter.map((countes) => countes.id) +
-  //       " your counter:" +
-  //       globalCounter.map((countes) => countes.counter)
-  //   );
-  console.log(globalCounter)
   const [count, setCount] = useState(0);
-  const [counterRequest, setCounterRequest] = useState([
-    {
-      id: itemData.id,
-      counter: count,
-    },
-  ]);
-  //   const globalId = globalCounter.map((countes) => countes.id);
-  //   const counterId = counterRequest.map((num) => num.id);
-
-  //   setCount(globalCounter.map((countes) => countes.counter))
   const byClick = () => {
-    if (
-    //   globalCounter.map((countes) => countes.counter)
-      count >
-      0 /*&& counterRequest.counter === globalCounter.counter */
-    ) {
+    if (itemData.counter > 0) {
       return (
         <div
           className={
@@ -44,15 +21,13 @@ const SlideBarCard = ({ itemData }) => {
           </subtract>
 
           <div className=" counterNumber noSelect">
-            {/* {count > 0 && count < 100
-              ? count
-              : count > 99
+            {itemData.counter > 0 && itemData.counter < 100
+              ? itemData.counter
+              : itemData.counter > 99
               ? setCount(99)
-              : count < 1
+              : itemData.counter < 1
               ? setCount(0)
-              : null} */}
-            {itemData.counter}
-            {/* {globalCounter.map((countes) => countes.counter)} */}
+              : null}
           </div>
           <pluse
             class="pluseCircle smallPluseCircle noSelect slidebar-pluseCircle sslidebar-mallPluseCircle"
@@ -63,11 +38,7 @@ const SlideBarCard = ({ itemData }) => {
           </pluse>
         </div>
       );
-    } else if (
-      //   globalCounter.map((countes) => countes.counter) <
-      count < 1
-      /*&& counterRequest.counter === globalCounter.counter */
-    ) {
+    } else if (itemData.counter < 1) {
       return (
         <pluse
           class={
@@ -82,27 +53,11 @@ const SlideBarCard = ({ itemData }) => {
         </pluse>
       );
     }
-    //  else {
-    //   setCounterRequest({
-    //     id: itemData.id,
-    //     counter: (counterRequest.counter = globalCounter.counterّ),
-    //   });
-    // }
   };
   const pluseClicked = () => {
-    setCounterRequest((prev) =>
-      prev.map((item) =>
-        item.id === itemData.id ? { ...item, counter: count + 1 } : item
-      )
-    );
     setCount(count + 1);
   };
   const subtractClicked = () => {
-    setCounterRequest((prev) =>
-      prev.map((item) =>
-        item.id === itemData.id ? { ...item, counter: count - 1 } : item
-      )
-    );
     setCount(count - 1);
   };
   return (

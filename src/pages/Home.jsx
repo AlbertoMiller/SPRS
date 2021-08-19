@@ -1,11 +1,9 @@
 import axios from 'axios';
 import { React, useEffect, useState } from 'react'
-// import axios from "axios"
 import ItemsCard from "../Components/ItemCard/ItemCard"
 import { useItemsState, useSetItemsState } from '../Providers/Providers'
 function Home() {
-    // const [items, setItem] = useState([]);
-    // const [errorItems, setErrorItems] = useState();
+
     const [searchboxintelligence, setsearchboxintelligence] = useState('')
     const items = useItemsState();
     const setItems = useSetItemsState()
@@ -25,8 +23,6 @@ function Home() {
                             setItems(products);
                         });
                     console.log(error);
-                    // setItem([]);
-                    // setErrorItems("server don't response call back later")
                 }
             })();
         }
@@ -58,7 +54,6 @@ function Home() {
                     <ItemsCard itemData={item} key={index} />
 
                 ))}
-                {/* <div>{errorItems} </div> */}
             </div>
         </div>
     )
