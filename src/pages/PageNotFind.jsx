@@ -2,9 +2,9 @@ import React from 'react'
 
 const PageNotFind = () => {
     return (
-        <p>
+        <PageNotFind>
             404 Page Not Find
-        </p>
+        </PageNotFind>
     )
 }
 

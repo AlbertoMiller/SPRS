@@ -1,3 +1,6 @@
+html{
+  scrollbar-width: thin;
+}
 body {
   background-color: rgba(255, 255, 255, 0.856);
   font-family: "Roboto", sans-serif;
@@ -11,7 +14,7 @@ Header {
   margin: 0;
   padding: 0;
 }
-.noselect {
+.noSelect {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
@@ -19,4 +22,7 @@ Header {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+.withoutPadding{
+  padding: unset !important;
 }

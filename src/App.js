@@ -1,7 +1,12 @@
 import "./css/main.css";
 // import Header from "./header";
 // import Footer from "./footer";
-import Router from "./Components/router";
+
+// import { Provider } from "react-redux";
+// import store from "./store/Store";
+// <Provider store={store}>
+// </Provider>
+import Router from "./Components/Router";
 
 function App() {
   return <Router />;

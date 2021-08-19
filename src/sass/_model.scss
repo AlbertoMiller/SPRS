@@ -10,6 +10,9 @@ $desktopMax: 1024px;
 .modal-content {
   flex-direction: row;
 }
+cardimagearea.cardImageArea.modalCardImageArea {
+  height: 40%;
+}
 .modalBox {
   display: flex !important;
   align-items: center;
@@ -23,6 +26,14 @@ $desktopMax: 1024px;
     }
     .modal-body {
       width: 35%;
+      display: flex;
+      flex-direction: column;
+      .cardImages {
+        @media (max-width: 576px) {
+          width: 150%;
+        }
+        
+      }
     }
     .modal-header {
       border-bottom: unset;
@@ -38,12 +49,18 @@ $desktopMax: 1024px;
     // white-space: break-spaces;
     font-weight: normal;
     text-align: center;
+    padding-top: 10px;
+    height: 35%;
   }
 
   .modalPluse {
     display: flex;
     justify-content: center;
-
+    height: 25%;
+    margin: 20px;
+    counternumber {
+      place-items: flex-end;
+    }
     .pluseCircle,
     counterBox {
       position: unset !important;

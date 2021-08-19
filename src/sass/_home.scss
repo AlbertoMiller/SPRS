@@ -4,13 +4,13 @@ $countersHeight: 36px;
 $smallCountersWidth: 30px;
 $smallCountersHeight: 30px;
 
-home {
+.home {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-boxCard {
+.BoxCard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -45,19 +45,18 @@ cards.cards {
   align-items: stretch;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-height: 100%;
+  min-height: 26rem;
 }
 .cardImages {
   vertical-align: middle;
   border-style: none;
   object-fit: cover;
-  height: 9rem;
+  // height: 9rem;
   place-self: center;
-  width: unset;
+  width: 65%;
   padding: 20px;
 }
 .cardTitle {
-  display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
@@ -65,18 +64,27 @@ cards.cards {
   -webkit-box-orient: vertical;
   white-space: normal;
   //   font-size: unset;
-  font-weight: 800;
+  font-weight: 700;
+  height: 25%;
+  // width: 85%;
 }
 .positionButton {
   display: flex;
   justify-content: flex-end;
 }
-Home input {
+.home input {
   margin: 20px;
 }
 .cardImageArea {
   display: flex;
   justify-content: center;
+  height: 45%;
+}
+.cardBody {
+  height: 55%;
+  p {
+    padding-bottom: 0.5rem;
+  }
 }
 .pluseCircle,
 .subtractCircle {
@@ -95,17 +103,17 @@ Home input {
   justify-content: center;
   position: absolute;
   right: 10px;
-  bottom: 185px;
+  top: 165px;
   box-shadow: 2px 2px darkorange;
 }
-counterBox {
+.counterBox {
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 185px;
+  top: 165px;
   right: 10px;
 }
-counterNumber {
+.counterNumber {
   padding: 0px 5px 0px 5px;
   display: flex;
   place-items: center;
@@ -113,6 +121,7 @@ counterNumber {
   color: orange;
   margin: 0px 3px 0px 3px;
 }
+
 .smallPluseCircle,
 .smallSubtractCircle {
   width: $smallCountersWidth !important;
@@ -120,5 +129,13 @@ counterNumber {
   place-items: center;
   position: unset !important;
   margin: 0px 3px 0px 3px;
+}
+.RePositionPluse {
+  top: 160px !important;
+  bottom: unset;
+}
+.ReCounterBox {
+  top: 170px !important;
+  bottom: unset;
 }
 //Home *End*
