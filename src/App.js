@@ -6,7 +6,7 @@ import "./css/main.css";
 // import store from "./store/Store";
 // <Provider store={store}>
 // </Provider>
-import Router from "./Components/Router";
+import Router from "./Components/router";
 
 function App() {
   return <Router />;
