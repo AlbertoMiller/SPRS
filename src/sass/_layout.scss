@@ -5,6 +5,9 @@ body {
   background-color: rgba(255, 255, 255, 0.856);
   font-family: "Roboto", sans-serif;
 }
+#root{
+  background-color: whitesmoke;
+}
 
 Header {
   height: 2rem;
@@ -25,4 +28,7 @@ Header {
 }
 .withoutPadding{
   padding: unset !important;
+}
+ul , li {
+  list-style-type: none;
 }

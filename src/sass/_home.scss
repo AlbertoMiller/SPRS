@@ -29,7 +29,7 @@ main {
   flex-wrap: wrap;
   flex-direction: column;
 }
-cards.cards {
+.cards {
   display: flex;
   height: max-content;
   padding: 25px;
@@ -46,6 +46,7 @@ cards.cards {
   overflow: hidden;
   text-overflow: ellipsis;
   min-height: 26rem;
+  border-radius: 20%;
 }
 .cardImages {
   vertical-align: middle;
@@ -112,6 +113,12 @@ cards.cards {
   position: absolute;
   top: 165px;
   right: 10px;
+}
+.modalPluse > .counterBox {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: unset;
 }
 .counterNumber {
   padding: 0px 5px 0px 5px;

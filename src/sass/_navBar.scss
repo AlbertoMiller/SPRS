@@ -35,22 +35,32 @@
   width: 45%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   position: fixed;
   top: 0;
   right: -100%;
   transition: 850ms;
-  z-index: 1;
+  z-index: 2;
+  overflow: initial;
 }
 .navMenu.active {
   right: 0;
   transition: 350ms;
-  z-index: 1;
-  overflow-y: scroll;
+  z-index: 2;
+  // overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   &::-webkit-scrollbar {
     display: none;
+  }
+  .navMenuItems {
+    height: 90%;
+    overflow-y: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 .outOfMenu {
@@ -68,4 +78,28 @@
     left: 0;
     transition: 350ms;
   }
+}
+.navbar-delete {
+  position: absolute;
+  cursor: pointer;
+  color: black;
+  height: 40px;
+  width: 40px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -2px;
+  left: -23px;
+}
+.payment{
+  display: flex;
+  flex-direction: column;
+  height: 11%;
+  text-align: center;
+.paymentBtn{
+  // margin: 20px;
+  margin-bottom: 10px;
+}
 }
