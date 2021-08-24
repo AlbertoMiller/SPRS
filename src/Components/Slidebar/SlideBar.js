@@ -5,7 +5,7 @@ function SlideBar() {
   const items = useItemsState();
   return items.map((item, index) =>
   
-    item.isValue ? <SlideBarCard itemData={item} key={index} /> : null
+    item.isValue && item.count > 0? <SlideBarCard itemData={item} key={index} /> : null
   );
 }
 

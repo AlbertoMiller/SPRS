@@ -1,33 +1,9 @@
-import axios from 'axios';
-import { React, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ItemsCard from "../Components/ItemCard/ItemCard"
-import { useItemsState, useSetItemsState } from '../Providers/Providers'
+import { useItemsState } from '../Providers/Providers'
 function Home() {
-
+    const items = useItemsState()
     const [searchboxintelligence, setsearchboxintelligence] = useState('')
-    const items = useItemsState();
-    const setItems = useSetItemsState()
-    useEffect(() => {
-        const axiosBusinesses = () => {
-            return (async () => {
-                try {
-                    await axios.get("http://fakestoreapi.com/products").then((res) => {
-                        const products = res.data;
-                        setItems(products);
-                    });
-                } catch (error) {
-                    await axios
-                        .get("https://jsonplaceholder.typicode.com/users")
-                        .then((res) => {
-                            const products = res.data;
-                            setItems(products);
-                        });
-                    console.log(error);
-                }
-            })();
-        }
-        axiosBusinesses();
-    }, []);
     return (
         <div className="home">
             <input type="text"

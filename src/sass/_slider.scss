@@ -18,9 +18,23 @@
   width: 40%;
   align-items: center;
   img.slidebar-cardImages {
-    width: 55%;
+    // width: 55%;
     padding: 10px;
     height: 65%;
+  }
+}
+.positionOfslidebar-delete {
+  margin-top: 10px;
+  .slidebar-delete {
+    cursor: pointer;
+    color: white;
+    height: 21px;
+    width: 21px;
+    background-color: #bbbbbb8f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .pluse > .slidebar-pluseCircle,
@@ -36,25 +50,4 @@
   align-self: center;
   place-items: center;
   position: relative;
-}
-.slidebar-title {
-  font-size: 13px;
-}
-.slidebar-price {
-  font-size: 13px;
-  font-weight: bold;
-}
-.slidebar-delete {
-  position: absolute;
-  top: 10px;
-  right: -20px;
-  cursor: pointer;
-  color: white;
-  height: 21px;
-  width: 21px;
-  background-color: #bbbbbb8f;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

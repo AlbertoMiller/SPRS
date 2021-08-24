@@ -1,95 +1,13 @@
 import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import { useSetCounterState } from "../../Providers/Providers";
 import SorryPic from "../../static/sorry.svg";
+import Stepper from "../Stepper";
 const ItemCard = ({ itemData }) => {
   const [showDetails, setShowDetails] = useState(false);
-  const [count, setCount] = useState(0);
-  const setGlobalCounter = useSetCounterState();
-  // const globalCounter = useCounterState();
-  itemData.counter = count;
-  const [counterRequest, setCounterRequest] = useState([
-    {
-      id: itemData.id,
-      counter: count,
-    },
-  ]);
-
-  const pluseClicked = () => {
-    setCounterRequest((prev) =>
-      prev.map((item) =>
-        item.id === itemData.id ? { ...item, counter: count + 1 } : item
-      )
-    );
-    setCount(count + 1);
-  };
-  const subtractClicked = () => {
-    setCounterRequest((prev) =>
-      prev.map((item) =>
-        item.id === itemData.id ? { ...item, counter: count - 1 } : item
-      )
-    );
-    setCount(count - 1);
-  };
-  const byClick = () => {
-    if (count > 0) {
-      setGlobalCounter(itemData.counter);
-
-      return (
-        <div
-          className={
-            itemData.image != null
-              ? " counterBox noSelect"
-              : "counterBox  ReCounterBox"
-          }
-        >
-          <subtract
-            class="subtractCircle smallSubtractCircle noSelect"
-            style={{ cursor: "pointer" }}
-            onClick={subtractClicked}
-          >
-            -
-          </subtract>
-
-          <div className=" counterNumber noSelect">
-            {itemData.counter > 0 && itemData.counter < 100
-              ? itemData.counter
-              : itemData.counter > 99
-              ? setCount(99)
-              : itemData.counter < 1
-              ? setCount(0)
-              : null}
-          </div>
-          <pluse
-            class="pluseCircle smallPluseCircle noSelect"
-            style={{ cursor: "pointer" }}
-            onClick={pluseClicked}
-          >
-            +
-          </pluse>
-        </div>
-      );
-    } else if (count < 1) {
-      return (
-        <pluse
-          class={
-            itemData.image != null
-              ? "pluseCircle noSelect"
-              : "pluseCircle noSelect RePositionPluse"
-          }
-          style={{ cursor: "pointer" }}
-          onClick={pluseClicked}
-        >
-          +
-        </pluse>
-      );
-    }
-  };
-
   return (
     <>
-      <cards className="cards">
+      <div className="cards">
         <Card style={{ width: "18rem" }} className={"card"}>
           <div className="cardImageArea">
             <Card.Img
@@ -102,7 +20,8 @@ const ItemCard = ({ itemData }) => {
               src={itemData.image != null ? itemData.image : SorryPic}
               style={{ padding: "unset !important" }}
             />
-            <pluse>{byClick()}</pluse>
+            {/* <div className="pluse">{ByClick()}</div> */}
+            <Stepper itemData={itemData} className="pluse" />
           </div>
           <Card.Body className="cardBody">
             <Card.Title
@@ -129,7 +48,7 @@ const ItemCard = ({ itemData }) => {
             </div>
           </Card.Body>
         </Card>
-      </cards>
+      </div>
       <Modal
         show={showDetails}
         onHide={() => setShowDetails(false)}
@@ -138,20 +57,20 @@ const ItemCard = ({ itemData }) => {
         className="modalBox"
       >
         <Modal.Body>
-          <cardImageArea className="cardImageArea modalCardImageArea">
+          <div className="cardImageArea modalCardImageArea">
             <Card.Img
               variant="top"
               className={"cardImages modalCardImages"}
               src={itemData.image != null ? itemData.image : SorryPic}
             />
-          </cardImageArea>
+          </div>
           <Card.Title
             className="modalCardTitle cardTitle"
             style={{ WebkitBoxOrient: "vertical" }}
           >
             {itemData.title != null ? itemData.title : itemData.name}
           </Card.Title>
-          <pluse className="modalPluse">{byClick()}</pluse>
+          <Stepper itemData={itemData} className="pluse modalPluse" />
         </Modal.Body>
         <Modal.Header closeButton>
           <Card.Body>

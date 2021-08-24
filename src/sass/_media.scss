@@ -1,0 +1,126 @@
+@mixin sliderCardHeight($min, $max) {
+  min-height: $min;
+  max-height: $max;
+}
+@mixin navMenuWidth($size) {
+  width: $size;
+}
+@mixin slideBarPrice($size) {
+  font-size: $size;
+  font-weight: bold;
+}
+@mixin slideBarTitle($size) {
+  font-size: $size;
+}
+@media screen and (min-width: 320px) and (max-width: 374px) {
+  .navMenu {
+    width: 100%;
+  }
+  .slidebar-price {
+    @include slideBarPrice(13px);
+  }
+  .slidebar-card {
+    @include sliderCardHeight(25vh, 25vh);
+  }
+  .slidebar-imageArea img.slidebar-cardImages {
+    width: 75%;
+  }
+  .slidebar-title {
+    @include slideBarTitle(13px);
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 480px) {
+  .navMenu {
+    width: 100%;
+  }
+  .slidebar-price {
+    @include slideBarPrice(13px);
+  }
+  .slidebar-card {
+    @include sliderCardHeight(25vh, 25vh);
+  }
+  .slidebar-imageArea img.slidebar-cardImages {
+    width: 60%;
+  }
+  .slidebar-title {
+    @include slideBarTitle(13px);
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .navMenu {
+    @include navMenuWidth(45%);
+  }
+  .navbar-delete {
+    position: absolute;
+    top: -2px;
+    left: -23px;
+  }
+  .slidebar-price {
+    @include slideBarPrice(13px);
+  }
+  .slidebar-title {
+    @include slideBarTitle(13px);
+  }
+  .slidebar-imageArea img.slidebar-cardImages {
+    width: 55%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1020px) {
+  .navMenu {
+    @include navMenuWidth(50%);
+  }
+  .navbar-delete {
+    position: absolute;
+    top: -2px;
+    left: -23px;
+  }
+  .slidebar-price {
+    @include slideBarPrice(13px);
+  }
+  .slidebar-title {
+    @include slideBarTitle(13px);
+  }
+}
+@media screen and (min-width: 1021px) and (max-width: 1449px) {
+  .navMenu {
+    @include navMenuWidth(35%);
+  }
+  .outOfMenu {
+    width: 65% !important;
+  }
+  .navbar-delete {
+    position: absolute;
+    top: -2px;
+    left: -23px;
+  }
+  .slidebar-imageArea img.slidebar-cardImages {
+    width: 45%;
+    padding: 10px;
+    height: 65%;
+  }
+  .slidebar-price {
+    @include slideBarPrice(unset);
+  }
+}
+@media screen and (min-width: 1450px) {
+  .navMenu {
+    @include navMenuWidth(45%);
+  }
+  .navbar-delete {
+    position: absolute;
+    top: -2px;
+    left: -23px;
+  }
+  .slidebar-imageArea img.slidebar-cardImages {
+    width: 50%;
+    padding: 10px;
+    height: 65%;
+  }
+  .slidebar-price {
+    @include slideBarPrice(x-large);
+  }
+  .slidebar-title {
+    @include slideBarTitle(x-large);
+  }
+}

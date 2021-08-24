@@ -1,27 +1,42 @@
-import React, { createContext, useState } from "react";
+import axios from "axios";
+import React, { createContext, useEffect, useState } from "react";
 const ItemsCountextState = createContext();
 const SetItemsCountextState = createContext();
-const PaymentCountextState = createContext();
-const SetPaymentCountextState = createContext();
-const GlobalCounterCountextState = createContext();
-const SetGlobalCounterCountextState = createContext();
+const ReducePriceCountextState = createContext();
+const SetReducePriceCountextState = createContext();
 function Providers({ children }) {
   const [items, setItems] = useState([]);
-  const [globalCounter, setGlobalCounter] = useState([{ id: 0, counter: 0 }]);
-console.log("Test "+ globalCounter.map((item)=> item.id+" "+item.counter))
-  const [payment, setPayment] = useState([0]);
+  const [reducePrice, setReducePrice] = useState([]);
+  console.log(reducePrice);
+  useEffect(() => {
+    const axiosBusinesses = () => {
+      return (async () => {
+        try {
+          await axios.get("http://fakestoreapi.com/products").then((res) => {
+            const products = res.data;
+            setItems(products.map((i) => ({ ...i, count: 0 })));
+          });
+        } catch (error) {
+          await axios
+            .get("https://jsonplaceholder.typicode.com/users")
+            .then((res) => {
+              const products = res.data;
+              setItems(products.map((i) => ({ ...i, count: 0 })));
+            });
+          console.log(error);
+        }
+      })();
+    };
+    axiosBusinesses();
+  }, []);
   return (
     <ItemsCountextState.Provider value={items}>
       <SetItemsCountextState.Provider value={setItems}>
-        <GlobalCounterCountextState.Provider value={globalCounter}>
-          <SetGlobalCounterCountextState.Provider value={setGlobalCounter}>
-            <PaymentCountextState.Provider value={payment}>
-              <SetPaymentCountextState.Provider value={setPayment}>
-                {children}
-              </SetPaymentCountextState.Provider>
-            </PaymentCountextState.Provider>
-          </SetGlobalCounterCountextState.Provider>
-        </GlobalCounterCountextState.Provider>
+        <ReducePriceCountextState.Provider value={reducePrice}>
+          <SetReducePriceCountextState.Provider value={setReducePrice}>
+            {children}
+          </SetReducePriceCountextState.Provider>
+        </ReducePriceCountextState.Provider>
       </SetItemsCountextState.Provider>
     </ItemsCountextState.Provider>
   );
@@ -32,24 +47,16 @@ function useItemsState() {
 function useSetItemsState() {
   return React.useContext(SetItemsCountextState);
 }
-function usePaymentState() {
-  return React.useContext(ItemsCountextState);
+function useReducePriceState() {
+  return React.useContext(ReducePriceCountextState);
 }
-function useSetPaymentState() {
-  return React.useContext(SetItemsCountextState);
-}
-function useGlobalCounterCountextState() {
-  return React.useContext(GlobalCounterCountextState);
-}
-function useSetGlobalCounterCountextState() {
-  return React.useContext(SetGlobalCounterCountextState);
+function useSetReducePriceState() {
+  return React.useContext(SetReducePriceCountextState);
 }
 export {
   useItemsState,
   useSetItemsState,
-  usePaymentState,
-  useSetPaymentState,
-  useGlobalCounterCountextState,
-  useSetGlobalCounterCountextState,
+  useReducePriceState,
+  useSetReducePriceState,
 };
 export default Providers;

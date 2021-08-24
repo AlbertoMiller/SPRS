@@ -1,167 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { useSetGlobalCounterCountextState } from "../../Providers/Providers";
+import React from "react";
+import { useSetItemsState } from "../../Providers/Providers";
 import SorryPic from "../../static/sorry.svg";
+import Stepper from "../Stepper";
 const SlideBarCard = ({ itemData }) => {
-  const [count, setCount] = useState(itemData.counter);
-  const setGlobalCounter = useSetGlobalCounterCountextState();
-  let isChanged = Boolean;
-
-  const pluseClicked = () => {
-    setCount(count + 1);
-    isChanged = true;
-  };
-  const subtractClicked = () => {
-    setCount(count - 1);
-    isChanged = true;
-  };
-  const delClicked = () => {
-    itemData.counter = 0;
-  };
-  const byClick = () => {
-    if (!isChanged) {
-      console.log("in the isChange False");
-      setCount(itemData.counter);
-      if (itemData.counter > 0) {
-        console.log("in the itemData.counter > 0");
-        return (
-          <div
-            className={
-              itemData.image != null
-                ? "counterBox noSelect slidebar-ReCounterBox"
-                : "counterBox slidebar-ReCounterBox"
-            }
-          >
-            <div
-              className="subtractCircle smallSubtractCircle noSelect slidebar-smallSubtractCircle"
-              style={{ cursor: "pointer" }}
-              onClick={() => subtractClicked()}
-            >
-              -
-            </div>
-
-            <div className=" counterNumber noSelect">
-              {/* {itemData.counter > 0 && itemData.counter < 100
-                ? itemData.counter
-                : itemData.counter > 99
-                ? setCount(99)
-                : itemData.counter < 1
-                ? setCount(0)
-                : null} */}
-              {count > 0 && count < 100
-                ? count
-                : count > 99
-                ? setCount(99)
-                : count < 1
-                ? setCount(0)
-                : null}
-            </div>
-            <div
-              className="pluse pluseCircle smallPluseCircle noSelect slidebar-pluseCircle sslidebar-mallPluseCircle"
-              style={{ cursor: "pointer" }}
-              onClick={() => pluseClicked()}
-            >
-              +
-            </div>
-          </div>
-        );
-      } else if (itemData.counter < 1) {
-        console.log("in the itemData.counter < 1");
-        return (
-          <pluse
-            className={
-              itemData.image != null
-                ? "pluseCircle noSelect slidebar-pluseCircle"
-                : "pluseCircle noSelect RePositionPluse slidebar-pluseCircle"
-            }
-            style={{ cursor: "pointer" }}
-            onClick={() => pluseClicked()}
-          >
-            +
-          </pluse>
-        );
-        // }
-      }
-    } else if (isChanged) {
-      console.log("in the isChange True");
-      setGlobalCounter((prev) => [
-        ...prev ,
-        { id: itemData.id, counter: count },
-      ]);
-      if (itemData.counter > 0) {
-        console.log("in the itemData.counter > 0");
-        return (
-          <div
-            className={
-              itemData.image != null
-                ? "counterBox noSelect slidebar-ReCounterBox"
-                : "counterBox slidebar-ReCounterBox"
-            }
-          >
-            <div
-              className="subtractCircle smallSubtractCircle noSelect slidebar-smallSubtractCircle"
-              style={{ cursor: "pointer" }}
-              onClick={() => subtractClicked()}
-            >
-              -
-            </div>
-
-            <div className=" counterNumber noSelect">
-              {/* {itemData.counter > 0 && itemData.counter < 100
-                ? itemData.counter
-                : itemData.counter > 99
-                ? setCount(99)
-                : itemData.counter < 1
-                ? setCount(0)
-                : null} */}
-              {count > 0 && count < 100
-                ? count
-                : count > 99
-                ? setCount(99)
-                : count < 1
-                ? setCount(0)
-                : null}
-            </div>
-            <div
-              className="pluse pluseCircle smallPluseCircle noSelect slidebar-pluseCircle sslidebar-mallPluseCircle"
-              style={{ cursor: "pointer" }}
-              onClick={() => pluseClicked()}
-            >
-              +
-            </div>
-          </div>
-        );
-      } else if (itemData.counter < 1) {
-        console.log("in the itemData.counter < 1");
-        return (
-          <pluse
-            className={
-              itemData.image != null
-                ? "pluseCircle noSelect slidebar-pluseCircle"
-                : "pluseCircle noSelect RePositionPluse slidebar-pluseCircle"
-            }
-            style={{ cursor: "pointer" }}
-            onClick={() => pluseClicked()}
-          >
-            +
-          </pluse>
-        );
-        // }
-      }
-    }
-
-    else if (itemData.counter !== count) {
-      if (!isChanged) {
-        setCount(itemData.counter);
-        console.log(
-          "false and count :" + count + "counter: " + itemData.counter
-        );
-      } else if (isChanged) {
-        setGlobalCounter(count);
-        console.log(
-          "true and count :" + count + "counter: " + itemData.counter
-        );
-      }
-    }
+  const setItems = useSetItemsState();
+  const price = itemData.price * itemData.count;
+  const delHandelClick = () => {
+    setItems((prev) =>
+      prev.map((item) =>
+        item.id === itemData.id ? { ...item, count: 0 } : item
+      )
+    );
   };
   return (
     <div className="slidebar-cards">
@@ -176,21 +25,23 @@ const SlideBarCard = ({ itemData }) => {
             src={itemData.image != null ? itemData.image : SorryPic}
             alt="ImgData"
           />
-          <div className="pluse">{byClick()}</div>
+          <Stepper itemData={itemData} className="pluse" />
         </div>
         <div className="slidebar-bodyArea">
-          <div className="slidebar-delete" onClick={() => delClicked()}>
+          <div>
+            <p className="slidebar-title cardTitle noSelect">
+              {itemData.title != null ? itemData.title : itemData.name}
+            </p>
+            <p className="slidebar-price noSelect">${price.toFixed(2)}</p>
+          </div>
+        </div>
+        <div className="positionOfslidebar-delete">
+          <div className="slidebar-delete" onClick={delHandelClick}>
             <i className="fa fa-times" />
           </div>
-          <p className="slidebar-title cardTitle noSelect">
-            {itemData.title != null ? itemData.title : itemData.name}
-          </p>
-          <p className="slidebar-price noSelect">
-            ${itemData.price * itemData.counter}
-          </p>
         </div>
       </div>
     </div>
   );
 };
-export default SlideBarCard;
+export default React.memo(SlideBarCard);

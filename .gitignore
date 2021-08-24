@@ -24,4 +24,4 @@ yarn-error.log*
 
 #ِDraft testing
 /src/Draft
-/src/static
+/src/static/trash

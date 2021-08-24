@@ -110,6 +110,9 @@ main {
 .counterBox {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+.card .counterBox {
   position: absolute;
   top: 165px;
   right: 10px;
