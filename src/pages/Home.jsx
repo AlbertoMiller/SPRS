@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ItemsCard from "../Components/ItemCard/ItemCard"
+import ItemsCard from "../Components/ItemCard/itemCard"
 import { useItemsState } from '../Providers/Providers'
 function Home() {
     const items = useItemsState()

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Logo } from "./NavBar.jsx";
+import { Logo } from "./navbar.jsx";
 import { Link } from "react-router-dom";
 import SlideBar from "../Slidebar/SlideBar";
 import { useReducePriceState } from "../../Providers/Providers.js";
@@ -28,6 +28,9 @@ const Navbar = () => {
     showSidebar();
     enableScroll();
   }
+  function reload() {
+    window.location.reload(false);
+  }
   return (
     <>
       <div className="navbar logoNavbar">
@@ -53,10 +56,15 @@ const Navbar = () => {
           <SlideBar />
         </ul>
         <div className="payment">
-          <div style={{ margin: "5px" }}>
-            ${reducePrice.reduce((a, c) => (a = a + c), 0).toFixed(2)}
+          <div className="priceClac">
+            <div className="priceText">Payment :</div>
+            <div className="priceNumber">
+              ${reducePrice.reduce((a, c) => (a = a + c), 0).toFixed(2)}
+            </div>
           </div>
-          <button className="paymentBtn btn btn-primary">Payment!</button>
+          <button className="paymentBtn btn btn-primary" onClick={reload}>
+            Payment!
+          </button>
         </div>
       </nav>
       <div
