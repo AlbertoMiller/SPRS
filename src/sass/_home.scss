@@ -102,9 +102,6 @@ main {
   margin: 0;
   padding: 0;
   justify-content: center;
-  position: absolute;
-  right: 10px;
-  top: 165px;
   box-shadow: 2px 2px darkorange;
 }
 .counterBox {
@@ -116,6 +113,16 @@ main {
   position: absolute;
   top: 165px;
   right: 10px;
+}
+.modal-body > .pluseCircle,
+.subtractCircle {
+  align-self: center;
+}
+.card .pluseCircle,
+.subtractCircle {
+  position: absolute;
+  right: 10px;
+  top: 165px;
 }
 .modalPluse > .counterBox {
   display: flex;

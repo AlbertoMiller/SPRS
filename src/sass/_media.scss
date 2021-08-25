@@ -15,6 +15,9 @@
 @mixin githubLink($width) {
   width: $width;
 }
+@mixin fontSizeModal($size) {
+  font-size: $size;
+}
 @media screen and (min-width: 319px) and (max-width: 374px) {
   .navMenu {
     width: 100%;
@@ -33,6 +36,26 @@
   }
   .githubLink {
     @include githubLink(10%);
+  }
+  .card-body:last-of-type {
+    @include fontSizeModal(smaller);
+  }
+  .modalBox .modalCardTitle {
+    font-size: medium;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .modal-body > .counterBox {
+    margin-top: 20px;
+  }
+  .modal-body > .smallPluseCircle,
+  .smallSubtractCircle {
+    margin: unset;
+  }
+  .modal-body {
+    .counterNumber {
+      place-items: flex-end;
+    }
   }
 }
 @media screen and (min-width: 375px) and (max-width: 480px) {

@@ -21,7 +21,7 @@ const ItemCard = ({ itemData }) => {
               style={{ padding: "unset !important" }}
             />
             {/* <div className="pluse">{ByClick()}</div> */}
-            <Stepper itemData={itemData} className="pluse" />
+            <Stepper itemData={itemData}  />
           </div>
           <Card.Body className="cardBody">
             <Card.Title
