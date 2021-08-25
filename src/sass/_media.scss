@@ -12,7 +12,10 @@
 @mixin slideBarTitle($size) {
   font-size: $size;
 }
-@media screen and (min-width: 320px) and (max-width: 374px) {
+@mixin githubLink($width) {
+  width: $width;
+}
+@media screen and (min-width: 319px) and (max-width: 374px) {
   .navMenu {
     width: 100%;
   }
@@ -27,6 +30,9 @@
   }
   .slidebar-title {
     @include slideBarTitle(13px);
+  }
+  .githubLink {
+    @include githubLink(10%);
   }
 }
 @media screen and (min-width: 375px) and (max-width: 480px) {
@@ -44,6 +50,9 @@
   }
   .slidebar-title {
     @include slideBarTitle(13px);
+  }
+  .githubLink {
+    @include githubLink(10%);
   }
 }
 
@@ -65,6 +74,9 @@
   .slidebar-imageArea img.slidebar-cardImages {
     width: 55%;
   }
+  .githubLink {
+    @include githubLink(7%);
+  }
 }
 @media screen and (min-width: 769px) and (max-width: 1020px) {
   .navMenu {
@@ -80,6 +92,9 @@
   }
   .slidebar-title {
     @include slideBarTitle(13px);
+  }
+  .githubLink {
+    @include githubLink(5%);
   }
 }
 @media screen and (min-width: 1021px) and (max-width: 1449px) {
@@ -102,6 +117,9 @@
   .slidebar-price {
     @include slideBarPrice(unset);
   }
+  .githubLink {
+    @include githubLink(3%);
+  }
 }
 @media screen and (min-width: 1450px) {
   .navMenu {
@@ -122,5 +140,8 @@
   }
   .slidebar-title {
     @include slideBarTitle(x-large);
+  }
+  .githubLink {
+    @include githubLink(5%);
   }
 }

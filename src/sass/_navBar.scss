@@ -15,6 +15,14 @@
 .logoNavbar {
   background-color: #000;
 }
+.github-icon {
+  background-color: #e0e0e0;
+  border-radius: 20%;
+  text-align: center;
+  img {
+    width: 80%;
+  }
+}
 .sliderbars {
   display: flex;
   justify-content: flex-end;
@@ -67,9 +75,9 @@
   margin: 5px 25px;
   font-weight: bolder;
   .priceText {
-  width: 50%;
-  text-align: end;
-  margin-right: 5px;
+    width: 50%;
+    text-align: end;
+    margin-right: 5px;
   }
   .priceNumber {
     width: 50%;
