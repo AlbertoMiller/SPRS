@@ -3,7 +3,7 @@ import { Logo } from "./navbar.jsx";
 import { Link } from "react-router-dom";
 import SlideBar from "../Slidebar/SlideBar";
 import { useReducePriceState } from "../../Providers/Providers.js";
-
+import github from "../../static/github.svg";
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
   const reducePrice = useReducePriceState();
@@ -37,7 +37,16 @@ const Navbar = () => {
         <Link to="/" className="MenuLinks">
           <Logo className="noSelect">Logo</Logo>
         </Link>
-        <Link to="#" className="menuLinks">
+        <a
+          href="https://github.com/AlbertoMiller/SPRS"
+          className="menuLinks githubLink"
+        >
+          <div className="github-icon">
+          {/* <i class="fa fa-github" aria-hidden="true" >Github</i> */}
+          <img src={github} alt="github" />
+          </div>
+        </a>
+        <Link to="#" className="menuLinks ">
           <i
             className={"fas fa-cart-plus navMenuShopIcon"}
             onClick={multeClickShow}
