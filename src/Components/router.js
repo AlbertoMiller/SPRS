@@ -7,7 +7,7 @@ import CountProviders from "../Providers/Providers";
 const Router = () => {
   return (
     <CountProviders>
-      <Routers>
+      <Routers basename="/SPRS">
         <Navbar className="App-header" />
         <main>
           <Switch>
