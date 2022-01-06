@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Logo } from "./navbar.jsx";
+import { Logo } from "./Navbar.jsx";
 import { Link } from "react-router-dom";
 import SlideBar from "../Slidebar/SlideBar";
 import { useReducePriceState } from "../../Providers/Providers.js";
